@@ -3,7 +3,6 @@ clientes = []
 produtos = []
 admins = []
 
-
 class Loja:
     def __init__(self, nome, endereco):
         self.nome = nome
@@ -15,15 +14,14 @@ class Loja:
         admin.append(admins)
         return admin
 
-class Cliente:
-    def __init__(self, nome, cpf, endereco, senha, carrinho):
+class Cliente(Carrinho):
+    def __init__(self, nome, cpf, endereco, senha):
         self.nome = None
         self.cpf = None
-        self.endereco = None
+        self.endereco = Nones
         self.telefone = None
         self.email = None
         self.senha = None
-        self.carrinho = []
     
     def getClientenome(self):
         return self.nome
@@ -54,6 +52,24 @@ class Cliente:
     
     def setCarrinho(self, carrinho):
         self.carrinho = carrinho
+
+class Carrinho:
+    def __init__(self,dono, produto, quantidade):
+        self.dono = None
+        self.produto = None
+        self.quantidade = None
+
+    def getCarrinhoproduto(self):
+        return self.produto
+    
+    def setCarrinhoproduto(self, produto):
+        self.produto = produto
+
+    def getCarrinhoquantidade(self):
+        return self.quantidade
+    
+    def setCarrinhoquantidade(self, quantidade):
+        self.quantidade = quantidade
 
 class Produtos:
     def __init__(self, nome, preco, descricao):
@@ -96,12 +112,10 @@ class Admin(Cliente, Produtos, Loja):
     def setAdminsenha(self, senha):
         self.senha = senha
 
-    def cadastrarCliente(self, cliente):
-        cliente.setClientenome(input("Digite o nome do cliente: "))
-        cliente.setClienteCPF(input("Digite o CPF do cliente: "))
-        cliente.setClienteendereco(input("Digite o endereço do cliente: "))
-        cliente.setClientesenha(input("Digite a senha do cliente: "))
+    def cadastrarCliente(cliente):
+        cliente = Cliente (nome = input("Digite o nome do cliente: "), cpf = input("Digite o CPF do cliente: "), endereco = input("Digite o endereço do cliente: "), senha = input("Digite a senha do cliente: "))
         cliente.append(clientes)
+        cliente.
         return cliente
     
     def excluirCliente(self, cliente):
