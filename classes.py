@@ -16,13 +16,14 @@ class Loja:
         return admin
 
 class Cliente:
-    def __init__(self, nome, cpf, endereco, senha):
+    def __init__(self, nome, cpf, endereco, senha, carrinho):
         self.nome = None
         self.cpf = None
         self.endereco = None
         self.telefone = None
         self.email = None
         self.senha = None
+        self.carrinho = []
     
     def getClientenome(self):
         return self.nome
@@ -48,6 +49,11 @@ class Cliente:
     def setClientesenha(self, senha):
         self.senha = senha
 
+    def getCarrinho(self):
+        return self.carrinho
+    
+    def setCarrinho(self, carrinho):
+        self.carrinho = carrinho
 
 class Produtos:
     def __init__(self, nome, preco, descricao):
