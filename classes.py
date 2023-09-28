@@ -14,11 +14,11 @@ class Loja:
         admin.append(admins)
         return admin
 
-class Cliente(Carrinho):
+class Cliente:
     def __init__(self, nome, cpf, endereco, senha):
         self.nome = None
         self.cpf = None
-        self.endereco = Nones
+        self.endereco = None
         self.telefone = None
         self.email = None
         self.senha = None
@@ -53,11 +53,21 @@ class Cliente(Carrinho):
     def setCarrinho(self, carrinho):
         self.carrinho = carrinho
 
+    def cadastrarCarrinho(self, carrinho):
+        carrinho = Carrinho(dono = input("Digite o nome do dono do carrinho: "), produto = input("Digite o nome do produto: "), quantidade = input("Digite a quantidade do produto: "))
+        return carrinho
+
 class Carrinho:
     def __init__(self,dono, produto, quantidade):
         self.dono = None
         self.produto = None
         self.quantidade = None
+
+    def getCarrinhodono(self):
+        return self.dono
+    
+    def setCarrinhodono(self, dono):
+        self.dono = dono
 
     def getCarrinhoproduto(self):
         return self.produto
@@ -115,7 +125,7 @@ class Admin(Cliente, Produtos, Loja):
     def cadastrarCliente(cliente):
         cliente = Cliente (nome = input("Digite o nome do cliente: "), cpf = input("Digite o CPF do cliente: "), endereco = input("Digite o endereço do cliente: "), senha = input("Digite a senha do cliente: "))
         cliente.append(clientes)
-        cliente.
+        cliente.cadastrarCarrinho()
         return cliente
     
     def excluirCliente(self, cliente):
