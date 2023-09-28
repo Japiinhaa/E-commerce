@@ -74,7 +74,7 @@ def main():
                             os.system("cls")
                         case 2:
                             print("Listando produtos...")
-                            admin.listarProdutos(produtos)
+                            admin.listarProdutos()
                             os.system("pause")
                             os.system("cls")
                         case 3:

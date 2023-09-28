@@ -149,11 +149,8 @@ class Admin(Cliente, Produtos, Loja):
                 print(i)
 
     def listarProdutos():
-        if not produtos:
-            print("Não há produtos cadastrados!")
-        else:
-            for i in produtos:
-                print(i)
+        for i in produtos:
+            print(i)
 
     def excluirAdmin(self, admin):
         admin = input("Digite o nome do admin que deseja excluir: ")
