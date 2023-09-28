@@ -58,7 +58,7 @@ class Cliente:
         return carrinho
 
 class Carrinho:
-    def __init__(self,dono, produto, quantidade):
+    def __init__(self, dono, produto, quantidade):
         self.dono = None
         self.produto = None
         self.quantidade = None
@@ -124,34 +124,37 @@ class Admin(Cliente, Produtos, Loja):
 
     def cadastrarCliente(cliente):
         cliente = Cliente (nome = input("Digite o nome do cliente: "), cpf = input("Digite o CPF do cliente: "), endereco = input("Digite o endereço do cliente: "), senha = input("Digite a senha do cliente: "))
-        cliente.append(clientes)
-        cliente.cadastrarCarrinho()
+        clientes.append(cliente)
         return cliente
     
     def excluirCliente(self, cliente):
         cliente = input("Digite o nome do cliente que deseja excluir: ")
-        cliente.pop(clientes)
+        clientes.pop(cliente)
         return cliente
     
     def cadastrarProduto(self, produto):
-        produto.setProdutonome(input("Digite o nome do produto: "))
-        produto.setProdutopreco(input("Digite o preço do produto: "))
-        produto.setProdutodescricao(input("Digite a descrição do produto: "))
-        produto.append(produtos)
+        produto = Produtos (nome = input("Digite o nome do produto: "), preco = input("Digite o preço do produto: "), descricao = input("Digite a descrição do produto: "))
+        produtos.append(produto)
         return produto
     
     def excluirProduto(self, produto):
         produto = input("Digite o nome do produto que deseja excluir: ")
-        produto.pop(produtos)
+        produtos.pop(produto)
         return produto
     
     def listarClientes():
-        for i in clientes:
-            print(i)
-        
+        if not clientes:
+            print("Não há clientes cadastrados!")
+        else:
+            for i in clientes:
+                print(i)
+
     def listarProdutos():
-        for i in produtos:
-            print(i)
+        if not produtos:
+            print("Não há produtos cadastrados!")
+        else:
+            for i in produtos:
+                print(i)
 
     def excluirAdmin(self, admin):
         admin = input("Digite o nome do admin que deseja excluir: ")
