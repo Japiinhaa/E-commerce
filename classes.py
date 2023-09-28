@@ -9,9 +9,8 @@ class Loja:
         self.endereco = endereco
 
     def cadastrarAdmin(self, admin):
-        admin.setAdminnome(input("Digite o nome do admin: "))
-        admin.setAdminsenha(input("Digite a senha do admin: "))
-        admin.append(admins)
+        admin = Admin (nome = input("Digite o nome do admin: "), senha = input("Digite a senha do admin: "))
+        admins.append(admin)
         return admin
 
 class Cliente:
@@ -53,7 +52,7 @@ class Cliente:
     def setCarrinho(self, carrinho):
         self.carrinho = carrinho
 
-    def cadastrarCarrinho(self, carrinho):
+    def cadastrarCarrinho(carrinho):
         carrinho = Carrinho(dono = input("Digite o nome do dono do carrinho: "), produto = input("Digite o nome do produto: "), quantidade = input("Digite a quantidade do produto: "))
         return carrinho
 
@@ -127,17 +126,17 @@ class Admin(Cliente, Produtos, Loja):
         clientes.append(cliente)
         return cliente
     
-    def excluirCliente(self, cliente):
+    def excluirCliente(cliente):
         cliente = input("Digite o nome do cliente que deseja excluir: ")
         clientes.pop(cliente)
         return cliente
     
-    def cadastrarProduto(self, produto):
+    def cadastrarProduto(produto):
         produto = Produtos (nome = input("Digite o nome do produto: "), preco = input("Digite o preço do produto: "), descricao = input("Digite a descrição do produto: "))
         produtos.append(produto)
         return produto
     
-    def excluirProduto(self, produto):
+    def excluirProduto(produto):
         produto = input("Digite o nome do produto que deseja excluir: ")
         produtos.pop(produto)
         return produto

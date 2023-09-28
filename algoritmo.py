@@ -33,7 +33,6 @@ def main():
                                 admin.listarProdutos()
                                 os.system("pause")
                                 os.system("cls")
-                                break
                             case 2:
                                 print("Comprando produtos...")
                                 admin.listarProdutos()
@@ -47,17 +46,14 @@ def main():
                                     print("Produto comprado com sucesso!")
                                     os.system("pause")
                                     os.system("cls")
-                                break
                             case 3:
                                 print("Saindo...")
                                 os.system("pause")
                                 os.system("cls")
-                                break
                             case _:
                                 print("Opção inválida!")
                                 os.system("pause")
                                 os.system("cls")
-                                break
                     else:
                         print("Usuário ou senha incorretos!")
                         break
@@ -73,57 +69,48 @@ def main():
                     match opcao:
                         case 1:
                             print("Listando clientes...")
-                            admin.listarClientes(clientes)
+                            admin.listarClientes()
                             os.system("pause")
                             os.system("cls")
-                            break
                         case 2:
                             print("Listando produtos...")
                             admin.listarProdutos(produtos)
                             os.system("pause")
                             os.system("cls")
-                            break
                         case 3:
                             print("Cadastrando cliente...")
                             admin.cadastrarCliente()
                             print("Cadastrando um carrinho ao cliente...")
-                            x = input("Digite o nome do cliente que deseja cadastrar um carrinho: ")
-                            if x in clientes:
-                                cliente.getClientenome(x).cadastrarCarrinho(dono = cliente.getClientenome(x), produtos = None, quantide = None)
-                                print("Carrinho cadastrado com sucesso!")
-                            else:
-                                print("Cliente não encontrado!")
+                            cliente.cadastrarCarrinho()
+                            print("Carrinho cadastrado com sucesso!")
                             os.system("pause")
                             os.system("cls")
-                            break
                         case 4:
                             print("Cadastrando produto...")
-                            admin.cadastrarProduto(produto)
+                            admin.cadastrarProduto()
+                            print("Produto cadastrado com sucesso!")
                             os.system("pause")
                             os.system("cls")
-                            break
                         case 5:
                             print("Excluindo cliente...")
                             admin.excluirCliente()
+                            print("Cliente excluído com sucesso!")
                             os.system("pause")
                             os.system("cls")
-                            break
                         case 6:
                             print("Excluindo produto...")
-                            admin.excluirProduto(produto)
+                            admin.excluirProduto()
+                            print("Produto excluído com sucesso!")
                             os.system("pause")
                             os.system("cls")
-                            break
                         case 7:
                             print("Saindo...")
                             os.system("pause")
                             os.system("cls")
-                            break
                         case _:
                             print("Opção inválida!")
                             os.system("pause")
                             os.system("cls")
-                            break
                 else:
                     print("Usuário ou senha incorretos!")
                     os.system("cls")
